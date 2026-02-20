@@ -1,0 +1,20 @@
+{
+  "collectionName": "movies",
+  "database": "sample_mflix",
+  "name": "autocompleteIndex",
+  "definition": {
+    "mappings": {
+      "dynamic": false,
+      "fields": {
+        "title": {
+          "type": "autocomplete",
+          "analyzer": "lucene.standard",
+          "tokenization": "edgeGram",
+          "minGrams": 4,
+          "maxGrams": 7,
+          "foldDiacritics": false
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "name": "plotReleasedIndex",
+  "collectionName": "movies",
+  "database": "sample_mflix",
+  "mappings": {
+    "dynamic": false,
+    "fields": {
+      "plot": { "type": "string" },
+      "released": { "type": "date" }
+    }
+  }
+}

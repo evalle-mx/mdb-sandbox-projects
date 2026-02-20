@@ -1,0 +1,59 @@
+###. Connectivity Test
+db.COLLECTION.findOne();
+
+
+##### :::::::  SEARCH INDEXES.  ::::::: #######
+UI: https://cloud.mongodb.com/v2/6852f0c0c59e4f19f9b24ed9#/clusters/atlasSearch/MongoTest
+
+### List Search Indexes (and status) on collection. */
+db.COLLECTION
+  .aggregate([{ $listSearchIndexes: {} } ]); //Obtain a detailed list of Search Indexes
+  `.aggregate([{ $listSearchIndexes: {} }, { $project: { _id: 0, name: 1, type: 1, status: 1 } } ]); //Reduced details
+`
+### Create a Search Index:
+ ## Via mongosh ::
+db.COLLECTION.createSearchIndex(<sIndexName>, {
+mappings: { fields: {  
+     <FIELD>: { type: "string", },
+     <FIELD>: { type: "string", },
+     ...
+     }, }, })
+
+## Via CLI
+```
+{
+  "name": <sIndexName>,
+  "collectionName": <COLLECTION>,
+  "database": <DATABASE>,
+  "mappings": {
+    "dynamic":false,
+    "fields":{
+      <FIELD>: { type: "string" },
+      <FIELD>: { type: "string" },
+      ...
+    }
+  }
+} 
+```
+ $ atlas clusters search indexes create --clusterName <CLUSTERNAME> -f /app/<search_index_def>.json 
+
+## Dynamic Search Index (default name)
+db.movies.createSearchIndex({
+  mappings: {
+    dynamic: true,
+  },
+});
+
+
+### 
+db.COLLECTION.dropSearchIndex("plot_IDX"); //Should return undefined
+
+
+
+_______________________
+
+# Load & Create index via mongosh: Json & runCommand::
+const fs = require('fs');
+const definition = JSON.parse(fs.readFileSync('<PATH>/<DEF_FILE>.json', 'utf8')); 
+// JSON.parse(fs.readFileSync('sample_mflix/playgrounds/plotReleasedIndex_def.json', 'utf8'));
+db.runCommand({  createSearchIndexes: "movies", indexes: [  { name: "plotTitleIndex", definition: definition } ] });

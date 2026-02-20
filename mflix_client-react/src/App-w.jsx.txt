@@ -1,0 +1,22 @@
+import { useState, useEffect, useCallback } from "react";
+import "./App.css";
+
+// ─── App shell ────────────────────────────────────────────────────────────────
+function App() {
+  const [count, setCount] = useState(0);
+
+  return (
+    <>
+      <div className="App">
+        <h1>MongoDB Atlas Search Playground</h1>
+        <p>
+          This is a playground for testing MongoDB Atlas Search queries. The
+          queries are executed in the browser and the results are displayed in
+          the console.
+        </p>
+      </div>
+    </>
+  );
+}
+
+export default App;
