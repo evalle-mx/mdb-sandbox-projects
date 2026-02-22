@@ -51,3 +51,19 @@ const autoCompleteIndexDefinition = {
     },
   },
 };
+
+
+const dynamovies = {
+  name: "dynamovies",
+  mappings: {
+    dynamic: true
+  }
+};
+
+
+module.exports = {
+  plotTitleIndexDefinition,
+  plotReleasedIndexDefinition,
+  autoCompleteIndexDefinition,
+  dynamovies
+};

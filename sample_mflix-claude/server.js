@@ -5,7 +5,7 @@ const { connectDB, closeDB } = require('./config/db');
 const moviesRouter = require('./routes/movies');
 
 const app  = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.NODE_PORT || 3000;
 
 // ── Middleware ────────────────────────────────────────────────────────────────
 app.use(cors());

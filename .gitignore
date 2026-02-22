@@ -25,3 +25,4 @@ yarn-error.log*
 
 # Additional folders & files
 /coverage
+env.txt
