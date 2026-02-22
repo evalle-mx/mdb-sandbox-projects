@@ -8,7 +8,6 @@ require("dotenv").config();
 
 // connect to your Atlas deployment
 const uri = process.env.ATLAS_ADMIN_URI;
-//"mongodb+srv://evallemx:Br3n3l!2025@mongotest.ai33drz.mongodb.net/?retryWrites=true&w=majority&appName=MongoTest";
 
 const { plotTitleIndexDefinition,
   plotReleasedIndexDefinition,
