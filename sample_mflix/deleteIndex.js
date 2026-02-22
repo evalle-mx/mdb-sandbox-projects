@@ -81,4 +81,8 @@ async function deleteAll() {
     await client.close();
   }
 }
+<<<<<<< HEAD
 deleteAll().catch(console.dir);
+=======
+deleteAll().catch(console.dir);
+>>>>>>> 4000383 (Scripts to create/delete indexes (node run))
