@@ -9,6 +9,7 @@ require("dotenv").config();
 // connect to your Atlas deployment
 const uri = process.env.ATLAS_ADMIN_URI;
 
+/** Reads definitions from Constants */
 const { plotTitleIndexDefinition,
   plotReleasedIndexDefinition,
   autoCompleteIndexDefinition,
